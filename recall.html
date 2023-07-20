@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Copy to Clipboard</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+</head>
+<body>
+  <table>
+    <tr>
+      <td>Value to Copy:</td>
+      <td id="valueToCopy"></td>
+    </tr>
+    <tr>
+      <td>URL:</td>
+      <td><a href="http://www.carfax.com/recall" target="_blank">http://www.carfax.com/recall</a></td>
+    </tr>
+    <tr>
+      <td><button class="btn" data-clipboard-target="#valueToCopy">Copy Value</button></td>
+    </tr>
+  </table>
+  <script>
+    var btn = document.querySelector('.btn');
+    var clipboard = new ClipboardJS(btn);
+
+    clipboard.on('success', function (e) {
+      alert('Value copied to clipboard: ' + e.text);
+    });
+
+    clipboard.on('error', function (e) {
+      alert('Failed to copy value to clipboard.');
+    });
+  </script>
+</body>
+</html>
